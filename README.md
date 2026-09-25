@@ -1,63 +1,63 @@
-# Rock Paper Scissors（石头剪刀布）
+# Rock Paper Scissors
 
-一个用原生 JavaScript 编写的石头剪刀布小游戏。玩家通过浏览器弹窗输入选择，和电脑进行 5 轮对决，每轮结果和最终胜负都会输出到浏览器控制台。
+A simple Rock Paper Scissors game written in vanilla JavaScript. You enter your choice through a browser prompt and play 5 rounds against the computer. The result of each round and the final winner are printed to the browser console.
 
-## 功能
+## Features
 
-- 电脑随机出拳（石头、剪刀、布的概率各为 1/3）
-- 通过 `prompt` 弹窗输入玩家的选择，大小写均可（如 `Rock`、`ROCK`、`rock`）
-- 共进行 5 轮，每轮在控制台显示输赢和电脑的选择
-- 5 轮结束后统计比分，宣布最终赢家（或平局）
+- The computer picks randomly (rock, paper and scissors each have a 1/3 chance)
+- You enter your choice in a `prompt` dialog; input is case-insensitive (`Rock`, `ROCK` and `rock` all work)
+- 5 rounds per game, with each round's outcome and the computer's choice logged to the console
+- After 5 rounds the scores are compared and the overall winner (or a draw) is announced
 
-## 如何运行
+## Getting Started
 
-项目没有任何依赖，也不需要构建。
+The project has no dependencies and no build step.
 
-1. 克隆仓库：
+1. Clone the repository:
    ```bash
    git clone https://github.com/Kho10-16/rock-paper-scissors.git
    cd rock-paper-scissors
    ```
-2. 用浏览器直接打开 `index.html`。
-3. 按 `F12`（macOS 上是 `Cmd + Option + I`）打开开发者工具，切换到 **Console（控制台）** 标签页。
-4. 在弹出的输入框中输入 `rock`、`paper` 或 `scissors`，共 5 次，然后在控制台查看结果。
+2. Open `index.html` in your browser.
+3. Open the developer tools (`F12`, or `Cmd + Option + I` on macOS) and switch to the **Console** tab.
+4. Type `rock`, `paper` or `scissors` into the prompt 5 times, then check the console for the results.
 
-> 提示：如果先打开页面再打开控制台，可能看不到前面几轮的输出。可以先打开控制台，再刷新页面重新开始游戏。
+> Tip: To see every round's output, open the console first and then reload the page to start a new game.
 
-## 游戏规则
+## Rules
 
-| 玩家 \ 电脑 | rock（石头） | paper（布） | scissors（剪刀） |
+| You \ Computer | rock | paper | scissors |
 |---|---|---|---|
-| **rock（石头）** | 平局 | 输 | 赢 |
-| **paper（布）** | 赢 | 平局 | 输 |
-| **scissors（剪刀）** | 输 | 赢 | 平局 |
+| **rock** | Draw | Lose | Win |
+| **paper** | Win | Draw | Lose |
+| **scissors** | Lose | Win | Draw |
 
-每赢一轮得 1 分，平局不得分。5 轮后分数高的一方获胜，分数相同则为平局。
+Each round won is worth 1 point; draws score nothing. After 5 rounds, the player with more points wins. Equal scores mean a draw.
 
-## 项目结构
+## Project Structure
 
 ```
 rock-paper-scissors/
-├── index.html   # 页面入口，引入 script.js
-└── script.js    # 游戏逻辑
+├── index.html   # Entry page, loads script.js
+└── script.js    # Game logic
 ```
 
-`script.js` 中的主要函数：
+Main functions in `script.js`:
 
-| 函数 | 作用 |
+| Function | Description |
 |---|---|
-| `getComputerChoice()` | 用 `Math.random()` 随机返回 `"rock"`、`"paper"` 或 `"scissors"` |
-| `getHumanChoice()` | 弹出输入框，返回玩家输入的内容 |
-| `playGame()` | 初始化双方比分，进行 5 轮游戏并输出最终结果 |
-| `playRound(humanChoice, computerChoice)` | 定义在 `playGame()` 内部，判断单轮胜负并更新比分 |
+| `getComputerChoice()` | Uses `Math.random()` to return `"rock"`, `"paper"` or `"scissors"` |
+| `getHumanChoice()` | Shows a prompt and returns what the player typed |
+| `playGame()` | Sets up both scores, plays 5 rounds and logs the final result |
+| `playRound(humanChoice, computerChoice)` | Defined inside `playGame()`; decides the winner of a single round and updates the score |
 
-## 已知限制
+## Known Limitations
 
-- 游戏结果只输出在控制台，页面上没有图形界面。
-- 没有校验输入：输入 `rock` 和 `paper` 以外的任何内容都会被当作 `scissors` 处理。
-- 如果在弹窗中点击“取消”，`prompt` 会返回 `null`，导致程序报错并中断。
+- Results are shown only in the console; there is no graphical interface on the page.
+- Input is not validated: anything other than `rock` or `paper` is treated as `scissors`.
+- Clicking "Cancel" in the prompt returns `null`, which causes an error and stops the game.
 
-## 使用的技术
+## Built With
 
 - HTML
-- JavaScript（ES6）
+- JavaScript (ES6)
