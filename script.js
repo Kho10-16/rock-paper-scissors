@@ -51,6 +51,16 @@ function playRound(humanChoice, computerChoice) {
     }
 
     scoreDiv.textContent = "You: " + humanScore + " | Computer: " + computerScore;
+
+    if(humanScore === 5){
+        resultsDiv.textContent = "Human win";
+        humanScore = 0;
+        computerScore = 0;
+    } else if(computerScore === 5){
+        resultsDiv.textContent = "Computer win";
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 const rockBtn = document.querySelector("#rock");
